@@ -1,0 +1,28 @@
+
+
+dag:
+  dag_id: austin-bikeshare-trips-etl
+  schedule_interval: '@daily'
+  default_args:
+    owner: 'wagdy.sm@gmail.com'
+    email_on_failure: False
+    email_on_retry: False
+    depends_on_past: False
+    retries: 1
+    max_active_runs: 1
+    #project_id: project_id
+    start_date: 2024-08-17T00:00:00Z
+  tags: ['test_etl']
+
+
+gcp:
+  project_id: de-project-432716
+  dataset_id: general_dataset
+  gcs_bucket: data-files-bucket
+  file_path: bikeshare/{0}/
+  external_table_name: ext_bikeshare_trips
+
+
+
+
+

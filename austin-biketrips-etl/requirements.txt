@@ -1,0 +1,5 @@
+apache-airflow[gcp]==2.6.0
+google-cloud-storage
+google-cloud-bigquery
+db-dtypes
+pyyaml==6.0
