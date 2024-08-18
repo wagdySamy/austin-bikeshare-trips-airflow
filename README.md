@@ -69,7 +69,7 @@ docker-compose up -d
 
 Open your browser and go to [http://localhost:8080](http://localhost:8080) to access the Airflow web interface.
 
-### Step 6: DAG verification
+### Step 7: DAG verification
 - DAG Graph
   <img width="932" alt="image" src="https://github.com/user-attachments/assets/61d6fb4c-e861-45b2-acab-701780739157">
 
@@ -79,5 +79,18 @@ Open your browser and go to [http://localhost:8080](http://localhost:8080) to ac
  - External BigLake Table
  
  <img width="804" alt="image" src="https://github.com/user-attachments/assets/b526e879-490d-46f5-9c35-4ed737ab96da">
+
+ ### Step 8: Data Analysis queries
+The \Data Analysis Script\austin_bikeshare_data_analysis_sql_script.sql, conatins a SQL queries to answer the following questions using the `new BigLake
+table`: ext_bikeshare_trips 
+1. **Find the total number of trips for each day.**
+2. **Calculate the average trip duration for each day.**
+3. **Identify the top 5 stations with the highest number of trip starts.**
+4. **Find the average number of trips per hour of the day.**
+5. **Determine the most common trip route (start station to end station).**
+6. **Calculate the number of trips each month.**
+7. **Find the station with the longest average trip duration.**
+8. **Find the busiest hour of the day (most trips started).**
+9. **Identify the day with the highest number of trips.** 
 
 
