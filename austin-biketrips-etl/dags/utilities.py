@@ -37,13 +37,12 @@ def run_bq_qry():
             , DATE(start_time) day_partition
             , EXTRACT(HOUR FROM start_time) hour_partition
         FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` trips 
-        WHERE TIMESTAMP_TRUNC(start_time, DAY) = '2024-06-30 00:00:00 UTC'
-          --start_time >= TIMESTAMP_TRUNC(TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY), DAY)
-          --AND start_time <  TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY)
+        WHERE 
+          start_time >= TIMESTAMP_TRUNC(TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY), DAY)
+          AND start_time <  TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY)
         ORDER BY 
           day_partition, 
           hour_partition
-        LIMIT 1000
         """
 
     bqclient = bigquery.Client()
