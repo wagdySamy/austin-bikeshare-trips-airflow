@@ -14,10 +14,18 @@ RUN apt-get update && apt-get install -y gnupg && \
 # Switch back to airflow user
 USER airflow
 
+# Set the working directory
+WORKDIR /opt/airflow
+
+# Copy the requirements file
+COPY requirements.txt .
+
+# Install the Python dependencies
+RUN pip install -r requirements.txt
+
 # Copy DAGs and other necessary files
 COPY dags/ /opt/airflow/dags/
 COPY dags/service_account.json /opt/airflow/dags/service_account.json
 
 # Set environment variables for Google Cloud authentication
 ENV GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/dags/service_account.json
-
